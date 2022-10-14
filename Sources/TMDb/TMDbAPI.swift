@@ -11,6 +11,8 @@ public final class TMDbAPI {
 
     /// Certifications.
     public let certifications: CertificationService
+    /// Changes.
+    public let changes: ChangeService
     /// Companies.
     public let companies: CompanyService
     /// Configurations.
@@ -47,6 +49,7 @@ public final class TMDbAPI {
 
         self.init(
             certificationService: TMDbCertificationService(apiClient: apiClient),
+            changeService: TMDbChangeService(apiClient: apiClient),
             companyService: TMDbCompanyService(apiClient: apiClient),
             configurationService: TMDbConfigurationService(apiClient: apiClient),
             discoverService: TMDbDiscoverService(apiClient: apiClient),
@@ -62,12 +65,14 @@ public final class TMDbAPI {
         )
     }
 
-    init(certificationService: CertificationService, companyService: CompanyService,
-         configurationService: ConfigurationService, discoverService: DiscoverService, genreService: GenreService,
+    init(certificationService: CertificationService, changeService: ChangeService,
+         companyService: CompanyService, configurationService: ConfigurationService,
+         discoverService: DiscoverService, genreService: GenreService,
          movieService: MovieService, personService: PersonService, searchService: SearchService,
          trendingService: TrendingService, tvShowService: TVShowService, tvShowSeasonService: TVShowSeasonService,
          tvShowEpisodeService: TVShowEpisodeService, watchProviderService: WatchProviderService) {
         self.certifications = certificationService
+        self.changes = changeService
         self.companies = companyService
         self.configurations = configurationService
         self.discover = discoverService

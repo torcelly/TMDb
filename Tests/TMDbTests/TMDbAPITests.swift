@@ -5,6 +5,7 @@ final class TMDbAPITests: XCTestCase {
 
     var tmdb: TMDbAPI!
     var certificationService: MockCertificationService!
+    var changeService: MockChangeService!
     var companyService: MockCompanyService!
     var configurationService: MockConfigurationService!
     var discoverService: MockDiscoverService!
@@ -21,6 +22,7 @@ final class TMDbAPITests: XCTestCase {
     override func setUp() {
         super.setUp()
         certificationService = MockCertificationService()
+        changeService = MockChangeService()
         companyService = MockCompanyService()
         configurationService = MockConfigurationService()
         discoverService = MockDiscoverService()
@@ -35,6 +37,7 @@ final class TMDbAPITests: XCTestCase {
         watchProviderService = MockWatchProviderService()
         tmdb = TMDbAPI(
             certificationService: certificationService,
+            changeService: changeService,
             companyService: companyService,
             configurationService: configurationService,
             discoverService: discoverService,

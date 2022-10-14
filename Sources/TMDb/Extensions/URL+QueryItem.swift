@@ -26,6 +26,8 @@ extension URL {
         static let page = "page"
         static let year = "year"
         static let firstAirDateYear = "first_air_date_year"
+        static let startDate = "start_date"
+        static let endDate = "end_date"
         static let withPeople = "with_people"
     }
 
@@ -90,6 +92,26 @@ extension URL {
         }
 
         return appendingQueryItem(name: QueryItemName.firstAirDateYear, value: year)
+    }
+    
+    func appendingStartDate(_ startDate: Date?) -> Self {
+        guard let startDate = startDate else {
+            return self
+        }
+        
+        let startDateStr = DateFormatter.theMovieDatabase.string(from: startDate)
+
+        return appendingQueryItem(name: QueryItemName.startDate, value: startDateStr)
+    }
+    
+    func appendingEndDate(_ endDate: Date?) -> Self {
+        guard let endDate = endDate else {
+            return self
+        }
+        
+        let endDateStr = DateFormatter.theMovieDatabase.string(from: endDate)
+
+        return appendingQueryItem(name: QueryItemName.endDate, value: endDateStr)
     }
 
     func appendingWithPeople(_ peopleIDs: [Person.ID]?) -> Self {
