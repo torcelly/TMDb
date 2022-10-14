@@ -15,15 +15,15 @@ final class TMDbChangeService: ChangeService {
         self.apiClient = apiClient
     }
 
-    func movieChanges(startDate: Date?, endDate: Date?, page: Int?) async throws -> MoviePageableList {
+    func movieChanges(startDate: Date?, endDate: Date?, page: Int?) async throws -> ChangePageableList {
         try await apiClient.get(endpoint: ChangesEndpoint.movie(startDate: startDate, endDate: endDate, page: page))
     }
 
-    func tvShowsChanges(startDate: Date?, endDate: Date?, page: Int?) async throws -> TVShowPageableList {
+    func tvShowsChanges(startDate: Date?, endDate: Date?, page: Int?) async throws -> ChangePageableList {
         try await apiClient.get(endpoint: ChangesEndpoint.tvShow(startDate: startDate, endDate: endDate, page: page))
     }
 
-    func personChanges(startDate: Date?, endDate: Date?, page: Int?) async throws -> PersonPageableList {
+    func personChanges(startDate: Date?, endDate: Date?, page: Int?) async throws -> ChangePageableList {
         try await apiClient.get(endpoint: ChangesEndpoint.person(startDate: startDate, endDate: endDate, page: page))
     }
 }
