@@ -11,7 +11,7 @@ import Foundation
 public struct Change: Identifiable, Decodable, Equatable, Hashable {
 
     /// Movie identifier.
-    public let id: Int
+    public let id: Int?
     /// Is the item only suitable for adults.
     public let adult: Bool?
 
@@ -20,7 +20,7 @@ public struct Change: Identifiable, Decodable, Equatable, Hashable {
     /// - Parameters:
     ///    - id: Item identifier.
     ///    - adult: Is the item only suitable for adults.
-    public init(id: Int, adult: Bool?) {
+    public init(id: Int?, adult: Bool?) {
         self.id = id
         self.adult = adult
     }
