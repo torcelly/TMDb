@@ -22,7 +22,7 @@ final class ChangeTests: XCTestCase {
         TMDbURLProtocol.reset()
         super.tearDown()
     }
-/*
+
     func testMovies() async throws {
         let startDate = Date(timeIntervalSinceNow: 60 * 60 * 24)
         let endDate = Date()
@@ -58,5 +58,5 @@ final class ChangeTests: XCTestCase {
 
         XCTAssertTrue(!personList.results.isEmpty)
     }
- */
+ 
 }
