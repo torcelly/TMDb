@@ -24,11 +24,3 @@ public protocol TVShowExternalService {
     func external(forTVShow tvShowID: TVShow.ID) async throws -> External
 
 }
-
-public extension TVShowReviewService {
-
-    func external(forTVShow tvShowID: TVShow.ID) async throws -> External {
-        try await external(forTVShow: tvShowID)
-    }
-
-}
