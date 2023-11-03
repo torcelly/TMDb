@@ -22,6 +22,8 @@ final class MockTVShowService: TVShowService {
     private(set) var lastSimilarPage: Int?
     var popular: TVShowPageableList?
     private(set) var lastPopularPage: Int?
+    var external: External?
+    private(set) var lastExternalTVShowID: TVShow.ID?
 
     func details(forTVShow id: TVShow.ID) async throws -> TVShow {
         lastTVShowDetailsID = id
@@ -127,6 +129,19 @@ final class MockTVShowService: TVShowService {
             }
 
             continuation.resume(returning: popular)
+        }
+    }
+    
+    func external(forTVShow tvShowID: TMDb.TVShow.ID) async throws -> TMDb.External {
+        lastExternalTVShowID = tvShowID
+
+        return try await withCheckedThrowingContinuation { continuation in
+            guard let external = self.external else {
+                continuation.resume(throwing: MockDataMissingError())
+                return
+            }
+
+            continuation.resume(returning: external)
         }
     }
 }
