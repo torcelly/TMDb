@@ -40,4 +40,7 @@ final class TMDbTVShowService: TVShowService {
         try await apiClient.get(endpoint: TVShowsEndpoint.popular(page: page))
     }
 
+    func external(forTVShow tvShowID: TVShow.ID) async throws -> External {
+        try await apiClient.get(endpoint: TVShowsEndpoint.external(tvShowID: tvShowID))
+    }
 }
